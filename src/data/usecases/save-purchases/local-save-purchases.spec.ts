@@ -1,4 +1,5 @@
 import { CacheStore } from "@/data/protocols/cache";
+import { mockPurchases } from "@/data/tests/purchases";
 import { SavePurchases } from "@/domain/usecases";
 import { LocalSavePurchases } from "./local-save-purchases";
 
@@ -47,19 +48,6 @@ const makeSut = (): SutTypes => {
     cacheStore,
   };
 };
-
-const mockPurchases = (): Array<SavePurchases.Params> => [
-  {
-    id: "1",
-    date: new Date(),
-    value: 50,
-  },
-  {
-    id: "2",
-    date: new Date(),
-    value: 40,
-  },
-];
 
 describe("LocalSavePurchases", () => {
   it("Should not delete cache on sut.init", () => {
